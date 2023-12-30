@@ -2,6 +2,9 @@ import json
 import os
 import xml.etree.ElementTree as ET
 
+def char_to_utf8_hex(c):
+    return c.encode('utf-8').hex()
+
 # Load the JSON data
 with open('shuowen_jiezi_test.json', 'r') as file:
     data = json.load(file)
@@ -17,7 +20,7 @@ for item in data:
 
     # Replace placeholders in the SVG template with actual data
     svg_modified = svg_template.replace('{{char}}', item['character'])
-    svg_modified = svg_modified.replace('{{utf8Hex}}', str(item['id']))
+    svg_modified = svg_modified.replace('{{utf8Hex}}', char_to_utf8_hex(item['character']))
 
     # Parse the modified SVG
     tree = ET.ElementTree(ET.fromstring(svg_modified))
