@@ -1,3 +1,10 @@
+def convert_to_traditional(simplified_text):
+    try:
+        import zhconv
+    except ImportError:
+        import zhconv
+    return zhconv.convert(simplified_text, 'zh-tw')
+
 import json
 import os
 import xml.etree.ElementTree as ET
@@ -19,8 +26,8 @@ for item in data:
         svg_template = file.read()
 
     # Replace placeholders in the SVG template with actual data
-    svg_modified = svg_template.replace('{{char}}', item['character'])
-    svg_modified = svg_modified.replace('{{utf8Hex}}', char_to_utf8_hex(item['character']))
+    svg_modified = svg_template.replace('{{char}}', convert_to_traditional(item['character']))
+    svg_modified = svg_modified.replace('{{utf8Hex}}', char_to_utf8_hex(convert_to_traditional(item['character'])))
 
     # Parse the modified SVG
     tree = ET.ElementTree(ET.fromstring(svg_modified))

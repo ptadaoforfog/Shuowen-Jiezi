@@ -1,0 +1,3 @@
+[submodule "libs/atomicals-js"]
+	path = libs/atomicals-js
+	url = https://github.com/atomicals/atomicals-js.git

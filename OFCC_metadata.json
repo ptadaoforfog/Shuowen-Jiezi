@@ -1,0 +1,13 @@
+{
+    "name": "OFCC",
+    "desc": "more 7000+ original Chinese characters",
+    "image": "atom:btc:dat:600f5f87f33f3664d615bc1b97a074473fe277de5464ce0e331d03bbd4148ad7i0/logo.png",
+    "links": {
+      "x": {
+        "v": "https://x.com/ptadaoforfog"
+      },
+      "github": {
+        "v": "https://github.com/ptadaoforfog/Shuowen-Jiezi"
+      }
+    }
+}
