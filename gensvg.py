@@ -6,11 +6,11 @@ def char_to_utf8_hex(c):
     return c.encode('utf-8').hex()
 
 # Load the JSON data
-with open('gb2312_characters_test.json', 'r') as file:
+with open('gb2312_characters.json', 'r') as file:
     data = json.load(file)
 
-# Ensure the 'dist' directory exists
-os.makedirs('dist', exist_ok=True)
+# Ensure the 'assets' directory exists
+os.makedirs('assets', exist_ok=True)
 
 # Load the SVG template
 with open('template.svg', 'r') as file:
@@ -26,10 +26,10 @@ for number, item in enumerate(data):
     tree = ET.ElementTree(ET.fromstring(svg_modified))
 
     # Save the modified SVG
-    output_path = os.path.join('dist', f"{number}.svg")
+    output_path = os.path.join('assets', f"{number}.svg")
     
     # Write the SVG file
     with open(output_path, 'w') as f:
-        f.write(ET.tostring(tree.getroot(), encoding='unicode').replace('ns0:',''))
+        f.write(ET.tostring(tree.getroot(), encoding='unicode').replace('ns0:','').replace(':ns0',''))
 
 print("ok")

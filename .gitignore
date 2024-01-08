@@ -165,3 +165,6 @@ code-copilot.yaml
 
 /node_modules
 
+/wallets
+/wallet.json
+
