@@ -5,7 +5,3 @@ activate:
 
 deps:
 	pip install -r requirements.txt
-
-dev:
-	python -m codecopilot
-

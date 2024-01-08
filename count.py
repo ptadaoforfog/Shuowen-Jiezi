@@ -12,7 +12,7 @@ def validate_json(json_file_path):
     return entries
 
 # Path to the JSON file
-json_file_path = 'shuowen_jiezi.json'
+json_file_path = 'gb2312_characters.json'
 
 # Call the validate function and store the invalid entries
 entries = validate_json(json_file_path)
