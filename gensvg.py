@@ -26,8 +26,9 @@ for item in data:
         svg_template = file.read()
 
     # Replace placeholders in the SVG template with actual data
-    svg_modified = svg_template.replace('{{char}}', convert_to_traditional(item['character']))
-    svg_modified = svg_modified.replace('{{utf8Hex}}', char_to_utf8_hex(convert_to_traditional(item['character'])))
+    traditional_ch = convert_to_traditional(item['character'])
+    svg_modified = svg_template.replace('{{char}}', traditional_ch)
+    svg_modified = svg_modified.replace('{{utf8Hex}}', char_to_utf8_hex(traditional_ch))
 
     # Parse the modified SVG
     tree = ET.ElementTree(ET.fromstring(svg_modified))
